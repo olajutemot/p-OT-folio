@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;900&display=swap");
+/* =================== setting CSS varibale===================== */
+:root {
+  /* ==================colors============================= */
+  --button-background: #007bff;
+  --button-hover-color: #0056b3;
+  --hompage-text-color: whitesmoke;
+  --homepage-text-color2: #888;
+}
+
+/*================= Reset some default styles================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+h3 {
+  font-size: 0.8rem;
+}
+body,
+html {
+  height: 100%;
+}
+
+/* ===================== styling the hompage===================== */
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(
+    farthest-side circle at 50% 24%,
+    #ccc,
+    #ccc 20%,
+    #445 21%,
+    #223 100%
+  );
+  color: var(--hompage-text-color);
+}
+.container img {
+  width: 200px;
+}
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--homepage-text-color2);
+}
+.buttons {
+  width: 30%;
+  display: flex;
+}
+
+/* ====================Hompage icon falling============================== */
+/* .container i {
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
+}
+.fa-cloud {
+  left: 0;
+  animation: iconrain 5s linear 0.5s infinite;
+}
+.fa-figma {
+  left: 25%;
+  animation: iconrain 5s linear 1s infinite;
+}
+.fa-pen-nib {
+  right: 85%;
+  animation: iconrain 5s linear 2s infinite;
+}
+.fa-apple {
+  left: 75%;
+  animation: iconrain 5s linear 3s infinite;
+}
+.fa-barcode {
+  right: 65%;
+  animation: iconrain 5s linear 4s infinite;
+}
+.fa-globe {
+  right: 0;
+  animation: iconrain 5s linear 5s infinite;
+} */
+/*==================Homepage intro section============================ */
+
+button {
+  margin: 2rem auto;
+  width: 200px;
+  padding: 20px 20px;
+  font-size: 1rem;
+  background-color: var(--button-background);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 30px;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* =============================styling portfolio section======================== */
+
+/* ===================Portfolio default styles */
+.portfolio i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* ========================================== */
+/* ===============Animation Style============= */
+#portfolio-img,
+#socials,
+#info,
+#contact-info,
+#download-CV,
+.fa-whatsapp,
+.filter-tabs,
+.project-items,
+.skill-details {
+  animation: slidein 2s linear;
+}
+/* =========================================== */
+.portfolio {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--color);
+  padding: 20px;
+  z-index: 999;
+}
+/* =================================styling dark & light mode=========================== */
+.lightmode {
+  --background-color: #f7f7f7ff;
+  --color: #070707;
+  --icon-background-color: rgb(207, 207, 215);
+  --icon-background-hover-color: #f7f7ff;
+  --icon-text-color: #070707;
+  --icon-background-hover-color2: #b7b7ba;
+}
+.darkmode {
+  --background-color: #282727;
+  --color: #f7f7ff;
+  --icon-background-color: rgb(57, 57, 57);
+  --icon-background-hover-color: #070707;
+  --icon-text-color: #f7f7ff;
+  --icon-background-hover-color2: #1f1e1e;
+}
+.fa-moon,
+.fa-sun {
+  position: fixed;
+  top: 5%;
+  left: 90%;
+}
+.fa-moon:hover,
+.fa-sun:hover,
+#socials i:hover {
+  color: var(--button-background);
+}
+#light-button {
+  display: none;
+}
+
+/* ========================================================================================== */
+.portfolio-container {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+#portfolio-img {
+  width: 100px;
+  border: 5px double dodgerblue;
+  border-radius: 50%;
+  margin: 2rem auto;
+}
+
+#info,
+#contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+  width: 30%;
+}
+
+#info span {
+  font-size: 0.8rem;
+}
+
+#download-CV {
+  margin: 0;
+}
+#download-CV a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+}
+.fa-whatsapp {
+  background-color: var(--icon-background-color);
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--icon-text-color);
+}
+.fa-whatsapp:hover {
+  background-color: var(--icon-background-hover-color2);
+}
+
+/*=============================== FILTERS TABS ===================================*/
+.filter-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  background-color: var(--icon-background-color);
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.filter-tabs a {
+  text-decoration: none;
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  color: var(--icon-text-color);
+}
+.project-toggle:hover {
+  background-color: var(--icon-background-hover-color);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.project-toggle-active {
+  background-color: var(--icon-background-hover-color);
+  border-radius: 8px;
+}
+.skills-container.hidden {
+  display: none;
+}
+
+/* =======================styling project section========================== */
+.grid-project-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem auto;
+}
+.project-items {
+  position: relative;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.project-items img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.project-items h3 {
+  font-size: 1.5rem;
+}
+
+.project-items p {
+  font-size: 1rem;
+  color: rgb(235, 232, 232);
+}
+.project-overlay i {
+  width: 2.5rem;
+  background-color: var(--button-background);
+  /* color: var(--icon-text-color); */
+  border-radius: 8px;
+  padding: 10px;
+}
+.project-overlay i:hover {
+  background-color: var(--button-hover-color);
+}
+.project-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  text-align: left;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 40, 143, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  color: #f1f1f1;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: flex-end;
+  border-radius: 15px;
+}
+.project-items:hover .project-overlay {
+  opacity: 1;
+}
+
+/* =======================styling skill section========================== */
+.skills-container {
+  margin: 2rem auto;
+  display: flex;
+  place-content: center;
+  gap: 30px;
+}
+.fa-circle-check {
+  margin-top: 8px;
+  color: dodgerblue;
+}
+.frontend,
+.backend {
+  display: grid;
+  column-gap: 20px;
+}
+.Skills-grid {
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+.Skills-grid > div {
+  display: grid;
+  align-content: flex-start;
+  row-gap: 10px;
+}
+.skill-details {
+  display: flex;
+  text-align: left;
+  column-gap: 10px;
+}
+.skill-details p {
+  font-size: 0.7rem;
+}
+
+/* ====================================PROFILE ANIMATION========================== */
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  40% {
+    opacity: 0.4;
+    transform: translateY(-10px);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes iconrain {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10vh);
+  }
+  20% {
+    transform: translateY(20vh);
+  }
+  30% {
+    transform: translateY(30vh);
+  }
+  40% {
+    transform: translateY(40vh);
+  }
+  50% {
+    transform: translateY(50vh);
+  }
+  60% {
+    transform: translateY(60vh);
+  }
+  70% {
+    transform: translateY(70vh);
+  }
+  80% {
+    transform: translateY(80vh);
+  }
+  90% {
+    transform: translateY(90vh);
+  }
+  100% {
+    transform: translateY(95vh);
+  }
+}
+/* =================================MEDIA QUERY=============================== */
+@media (max-width: 768px) {
+  .container {
+    background: radial-gradient(
+      farthest-side circle at 50% 28%,
+      #ccc,
+      #ccc 20%,
+      #445 21%,
+      #223 100%
+    );
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .container img {
+    width: 150px;
+  }
+  .intro {
+    margin-top: 10px;
+  }
+  .portfolio-container {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #info,
+  #contact-info {
+    width: 70%;
+  }
+  .filter-tabs {
+    width: 70%;
+  }
+  .grid-project-item {
+    display: contents;
+  }
+  .skills-container {
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 75%;
+  }
+  .Skills-grid {
+    margin: 1rem auto;
+  }
+  .filter-sections {
+    margin: 2rem auto;
+  }
+}
