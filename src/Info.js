@@ -18,15 +18,15 @@ const Info = () => {
         </div>
       </div>
       <div id="contact-info">
-        <button id="download-CV">
-          <a
-            href="https://docs.google.com/document/d/1Qr93NMRdaiEXkNffimNsAe4TDVsc3UkB-OlbcrLAN_A/edit?usp=sharing"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Check Resume <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </button>
+        <a
+          href="https://docs.google.com/document/d/1Qr93NMRdaiEXkNffimNsAe4TDVsc3UkB-OlbcrLAN_A/edit?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+          id="resume"
+        >
+          Check Resume <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
         <a href="https://wa.link/fw0mz7" target="_blank" rel="noreferrer">
           <i class="fa-brands fa-whatsapp"></i>
         </a>

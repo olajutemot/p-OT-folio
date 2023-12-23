@@ -20,10 +20,16 @@ const Hompage = () => {
             <p>I am a Front-end Web Developer & software Engineer</p>
           </header>
           <div className="buttons">
-            <button id="openPortfolio" onClick={handlePortfolio}>
+            <button
+              className="button"
+              id="openPortfolio"
+              onClick={handlePortfolio}
+            >
               View my Portfolio
             </button>
-            <button id="openPortfolio">Visit my Blog</button>
+            <button className="button" id="openPortfolio">
+              Visit my Blog
+            </button>
           </div>
         </div>
       )}

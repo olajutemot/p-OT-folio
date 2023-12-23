@@ -3,7 +3,7 @@ import React from "react";
 const Project = () => {
   return (
     <div>
-      <section class="grid-project-item" id="projects">
+      {/* <section class="grid-project-item" id="projects">
         <div class="project-items">
           <img src="menu/Project tile 1.png" alt="Project 1" />
           <div class="project-overlay">
@@ -36,7 +36,7 @@ const Project = () => {
             <i class="fa-solid fa-up-right-from-square"></i>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

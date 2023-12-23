@@ -1,9 +1,16 @@
 import React from "react";
+import { useState } from "react";
 
 const Skills = () => {
+  const [skills, setSkills] = useState(false);
+  const updatedSkills = setSkills(true);
   return (
     <div>
-      <section class="skills-container hidden" id="skills">
+      {/* <section
+        className={skills ? "skills-container hidden" : "skills-container"}
+        id="skills"
+        skills={updatedSkills}
+      >
         <div class="frontend">
           <h3>Frontend Developer</h3>
 
@@ -99,7 +106,7 @@ const Skills = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

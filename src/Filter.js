@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+// import Skills from "./Skills";
+// import Project from "./Project";
 
-const Filter = () => {
+const Filter = ({ updatedSkills }) => {
+  //   const [skills, setSkills] = useState("");
+  //   const [projects, setProjects] = useState("");
+  const updatedSkill = updatedSkills;
+  const handleSkills = () => updatedSkill;
+
+  //   const handleProjects = () => {
+  //     setProjects(true);
+  //   };
   return (
     <div class="filter-tabs">
       <a
         id="projects-button"
         class="project-toggle project-toggle-active"
         href="#projects"
+        // onClick={handleProjects}
       >
-        Projects{" "}
+        Projects
       </a>
-      <a id="skills-button" class="project-toggle" href="#skills">
+      <a
+        id="skills-button"
+        class="project-toggle"
+        href="#skills"
+        onClick={handleSkills}
+      >
         Skills
       </a>
     </div>
