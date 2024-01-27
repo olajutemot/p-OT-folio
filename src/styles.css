@@ -179,6 +179,7 @@ button:hover {
 .portfolio-container {
   text-align: center;
   width: 50%;
+  min-width: 750px;
   margin: 0 auto;
 }
 #portfolio-img {
@@ -423,15 +424,12 @@ button:hover {
   }
 }
 /* =================================MEDIA QUERY=============================== */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .container {
-    background: radial-gradient(
-      farthest-side circle at 50% 28%,
-      #ccc,
-      #ccc 20%,
-      #445 21%,
-      #223 100%
-    );
+    background: #282727;
+  }
+  header {
+    margin-top: 2rem;
   }
   h1 {
     font-size: 2rem;
@@ -441,14 +439,19 @@ button:hover {
     font-size: 1rem;
   }
   .container img {
-    width: 150px;
+    width: 200px;
   }
   .intro {
     margin-top: 10px;
   }
+  .buttons {
+    display: block;
+  }
   .portfolio-container {
     text-align: center;
     width: 100%;
+    min-width: 350px;
+    max-width: 400px;
     margin: 0 auto;
   }
   #info,
@@ -462,9 +465,10 @@ button:hover {
     display: contents;
   }
   .skills-container {
-    justify-content: space-between;
+    display: block;
+    /* justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
+    gap: 30px; */
     width: 75%;
   }
   .Skills-grid {
