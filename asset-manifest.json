@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/p-OT-folio/static/css/main.f24a2d75.css",
+    "main.js": "/p-OT-folio/static/js/main.53d69dc2.js",
+    "index.html": "/p-OT-folio/index.html",
+    "main.f24a2d75.css.map": "/p-OT-folio/static/css/main.f24a2d75.css.map",
+    "main.53d69dc2.js.map": "/p-OT-folio/static/js/main.53d69dc2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f24a2d75.css",
+    "static/js/main.53d69dc2.js"
+  ]
+}
