@@ -7,7 +7,7 @@ const Hompage = () => {
 
   const handlePortfolio = () => {
     setPortfolio(<Portfolio />);
-    console.log(portfolio);
+    // console.log(portfolio);
   };
 
   return (

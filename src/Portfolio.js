@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import "./styles.css";
-// import Project from "./Project";
-// import Skills from "./Skills";
+import Project from "./Project";
+import Skills from "./Skills";
 import Socials from "./Socials";
 import Info from "./Info";
-// import Filter from "./Filter";
+import Filter from "./Filter";
 
 const Portfolio = () => {
   const [skills, setSkills] = useState(true);
@@ -23,8 +23,13 @@ const Portfolio = () => {
         <img id="portfolio-img" src="menu/Timmy Ai.png" alt="Timilehin" />
         <Socials />
         <Info />
-        {/* <Filter /> */}
-        <div class="filter-tabs">
+        <Filter
+          handleSkills={handleSkills}
+          handleProjects={handleProjects}
+          skills={skills}
+          projects={projects}
+        />
+        {/* <div class="filter-tabs">
           <a
             id="projects-button"
             className={
@@ -49,10 +54,15 @@ const Portfolio = () => {
           >
             Skills
           </a>
-        </div>
+        </div> */}
         <section class="filter-sections">
-          {/* <Project /> */}
-          <section
+          <Project
+            handleSkills={handleSkills}
+            handleProjects={handleProjects}
+            skills={skills}
+            projects={projects}
+          />
+          {/* <section
             className={skills && projects ? "grid-project-item" : "hidden"}
             id="projects"
           >
@@ -88,9 +98,14 @@ const Portfolio = () => {
                 <i class="fa-solid fa-up-right-from-square"></i>
               </div>
             </div>
-          </section>
-          {/* <Skills /> */}
-          <section
+          </section> */}
+          <Skills
+            handleSkills={handleSkills}
+            handleProjects={handleProjects}
+            skills={skills}
+            projects={projects}
+          />
+          {/* <section
             className={skills && projects ? "hidden" : "skills-container"}
             id="skills"
           >
@@ -189,7 +204,7 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
         </section>
         <button className="button" id="closePortfolio">
           Close
