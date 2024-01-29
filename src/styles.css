@@ -466,9 +466,6 @@ button:hover {
   }
   .skills-container {
     display: block;
-    /* justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px; */
     width: 75%;
   }
   .Skills-grid {
