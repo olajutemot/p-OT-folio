@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import Portfolio from "./Portfolio";
+// import Blog from "./Blog";
 import "./styles.css";
 
 const Hompage = () => {
   const [portfolio, setPortfolio] = useState(false);
-
+  const [Blog, setBlog] = useState(false);
   const handlePortfolio = () => {
     setPortfolio(<Portfolio />);
-    // console.log(portfolio);
   };
-
+  const handleBlog = () => {
+    setBlog(<Blog />);
+  };
   return (
     <div>
       {portfolio || (
@@ -27,7 +29,7 @@ const Hompage = () => {
             >
               View my Portfolio
             </button>
-            <button className="button" id="openPortfolio">
+            <button className="button" id="openPortfolio" onClick={handleBlog}>
               Visit my Blog
             </button>
           </div>
