@@ -424,7 +424,7 @@ button:hover {
   }
 }
 /* =================================MEDIA QUERY=============================== */
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .container {
     background: #282727;
   }
@@ -445,6 +445,10 @@ button:hover {
     margin-top: 10px;
   }
   .buttons {
+    display: block;
+    width: 100%;
+  }
+  .button {
     display: block;
   }
   .portfolio-container {
