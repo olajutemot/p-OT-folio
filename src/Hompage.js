@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Portfolio from "./Portfolio";
-// import Blog from "./Blog";
 import "./styles.css";
+import BlogSite from "./BlogSite";
 
 const Hompage = () => {
   const [portfolio, setPortfolio] = useState(false);
-  const [Blog, setBlog] = useState(false);
+  const [blog, setBlog] = useState(false);
   const handlePortfolio = () => {
     setPortfolio(<Portfolio />);
   };
   const handleBlog = () => {
-    setBlog(<Blog />);
+    setBlog(<BlogSite />);
   };
   return (
     <div>
-      {portfolio || (
+      {portfolio || blog || (
         <div className="container">
           <img src="./p-OT-folio/menu/Timmy Headshot.png" alt="Timilehin" />
           <header>
