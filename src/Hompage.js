@@ -16,7 +16,7 @@ const Hompage = () => {
     <div>
       {portfolio || (
         <div className="container">
-          <img src="menu/Timmy Headshot.png" alt="Timilehin" />
+          <img src="./p-OT-folio/menu/Timmy Headshot.png" alt="Timilehin" />
           <header>
             <h1>Hey I am olajutemo Timilehin</h1>
             <p>I am a Front-end Web Developer & software Engineer</p>

@@ -26,7 +26,11 @@ const Portfolio = () => {
       {close || (
         <div class="portfolio lightmode" id="portfolioOverlay">
           <div class="portfolio-container">
-            <img id="portfolio-img" src="menu/Timmy Ai.png" alt="Timilehin" />
+            <img
+              id="portfolio-img"
+              src="./p-OT-folio/menu/Timmy Ai.png"
+              alt="Timilehin"
+            />
             <Socials />
             <Info />
             <Filter

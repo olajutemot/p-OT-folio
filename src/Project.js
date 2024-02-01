@@ -7,7 +7,7 @@ const Project = ({ handleSkills, handleProjects, skills, projects }) => {
       id="projects"
     >
       <div class="project-items">
-        <img src="menu/Project tile 1.png" alt="Project 1" />
+        <img src="./p-OT-folio/menu/Project tile 1.png" alt="Project 1" />
         <div class="project-overlay">
           <h3>Web App</h3>
           <p>Dice game</p>
@@ -15,7 +15,7 @@ const Project = ({ handleSkills, handleProjects, skills, projects }) => {
         </div>
       </div>
       <div class="project-items">
-        <img src="menu/project tile 2.png" alt="Project 2" />
+        <img src="./p-OT-folio/menu/project tile 2.png" alt="Project 2" />
         <div class="project-overlay">
           <h3>Web</h3>
           <p>interactive and responsive website</p>
@@ -23,7 +23,7 @@ const Project = ({ handleSkills, handleProjects, skills, projects }) => {
         </div>
       </div>
       <div class="project-items">
-        <img src="menu/project tile 4.png" alt="Project 4" />
+        <img src="./p-OT-folio/menu/project tile 4.png" alt="Project 4" />
         <div class="project-overlay">
           <h3>Web</h3>
           <p>Responsive website</p>
@@ -31,7 +31,7 @@ const Project = ({ handleSkills, handleProjects, skills, projects }) => {
         </div>
       </div>
       <div class="project-items">
-        <img src="menu/project tile 5.png" alt="Project 5" />
+        <img src="./p-OT-folio/menu/project tile 5.png" alt="Project 5" />
         <div class="project-overlay">
           <h3>Web</h3>
           <p>Burger Description website</p>
