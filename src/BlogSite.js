@@ -12,7 +12,7 @@ const BlogSite = () => {
       <input type="email" placeholder="enter your email" />
 
       <h2>
-        click this<button>Go back</button> or reload page to go back
+        click this to <button>Go back</button> or reload page to go back
       </h2>
     </div>
   );
