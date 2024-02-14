@@ -28,7 +28,7 @@ const Portfolio = () => {
           <div class="portfolio-container">
             <img
               id="portfolio-img"
-              src="../p-OT-folio/menu/Timmy Ai.png"
+              src="../p-OT-folio/menu/Timmy Headshot.png"
               alt="Timilehin"
             />
             <Socials />
