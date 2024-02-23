@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Portfolio from "./Portfolio";
-import "./styles.css";
-import BlogSite from "../../BlogSite";
+import Portfolio from "../components/Portfolio";
+import "../components/styles.css";
+import BlogSite from "./Blogs/BlogSite";
 
-const Hompage = () => {
+const Home = () => {
   const [portfolio, setPortfolio] = useState(false);
   const [blog, setBlog] = useState(false);
   const handlePortfolio = () => {
@@ -39,4 +39,4 @@ const Hompage = () => {
   );
 };
 
-export default Hompage;
+export default Home;

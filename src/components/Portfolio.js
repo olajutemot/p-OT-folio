@@ -5,7 +5,7 @@ import Skills from "./Skills";
 import Socials from "./Socials";
 import Info from "./Info";
 import Filter from "./Filter";
-import Hompage from "./Hompage";
+import Home from "../pages/Home";
 
 const Portfolio = () => {
   const [skills, setSkills] = useState(true);
@@ -19,7 +19,7 @@ const Portfolio = () => {
     setProjects(true);
   };
   const handleClose = () => {
-    setClose(<Hompage />);
+    setClose(<Home />);
   };
   return (
     <div>
