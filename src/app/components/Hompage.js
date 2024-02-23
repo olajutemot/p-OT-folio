@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Portfolio from "./Portfolio";
 import "./styles.css";
-import BlogSite from "./BlogSite";
+import BlogSite from "../../BlogSite";
 
 const Hompage = () => {
   const [portfolio, setPortfolio] = useState(false);

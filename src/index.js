@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Hompage from "./Hompage";
+import Hompage from "./app/components/Hompage";
 // import Portfolio from "./Portfolio";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
