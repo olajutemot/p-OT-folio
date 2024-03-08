@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Auth.module.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // const width = window.innerWidth;
 // const height = window.innerHeight;
@@ -41,7 +43,7 @@ const SignUp = () => {
       return;
     }
 
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/auth/register`, {
+    fetch("http://localhost:8000/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +53,12 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((response) => {
         if (response.ok) {
-          alert("Registration successful!");
+          console.log(response);
+          toast(response.message, {
+            type: "success",
+            position: "top-right",
+            autoClose: 2000,
+          });
           setFormData({
             name: "",
             email: "",
@@ -59,12 +66,20 @@ const SignUp = () => {
             confirmPassword: "",
           });
         } else {
-          alert(`Registration failed: ${response.message}`);
+          toast(response.message, {
+            type: "error",
+            position: "top-right",
+            autoClose: 2000,
+          });
         }
       })
       .catch((error) => {
         console.error("Registration error:", error.message);
-        alert("Registration failed. Please try again later.");
+        toast(error.message, {
+          type: "error",
+          position: "top-right",
+          autoClose: 2000,
+        });
       });
   };
   return (
