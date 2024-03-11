@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  background-color: black;
+}
+.Navbar {
+  width: 70%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.logo {
+  font-size: 1em;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 40%;
+}
+.Anchors {
+  color: rgb(183, 181, 181);
+  text-decoration: none;
+}

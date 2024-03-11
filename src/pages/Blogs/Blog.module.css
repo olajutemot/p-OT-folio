@@ -1,26 +1,5 @@
 .blogContainer {
   width: 70%;
   min-width: 750px;
-  margin: 0 auto;
-}
-
-.Navbar {
-  background-color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.blogCards {
-  display: grid;
-  grid-template-columns: repeat(2, 400px);
-  /* grid: gap 20px; */
-}
-.blogCard {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-.blogCard a {
-  display: block;
+  margin: 4rem auto;
 }

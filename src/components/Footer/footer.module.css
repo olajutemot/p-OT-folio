@@ -1,0 +1,21 @@
+.container {
+  background-color: black;
+  color: antiquewhite;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.7em;
+}
+
+.footerFlex {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+}
+.footerFlex a {
+  text-decoration: none;
+  color: antiquewhite;
+  padding-left: 10px;
+}
