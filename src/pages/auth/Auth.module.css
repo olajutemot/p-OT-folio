@@ -2,11 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #282727;
 }
 
 .formContainer {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   position: absolute;
   top: 20%;
   left: 40%;
+
+  color: #f7f7ff;
 }

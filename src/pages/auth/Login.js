@@ -1,17 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Auth.module.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setErrors({});
+
+    const validationErrors = {};
+    if (!formData.email) {
+      validationErrors.email = "Email is required";
+    }
+    if (!formData.password) {
+      validationErrors.password = "Password is required";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    fetch("http://localhost:8000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.ok) {
+          console.log(response);
+          toast(response.message, {
+            type: "success",
+            position: "top-right",
+            autoClose: 2000,
+          });
+          setFormData({
+            email: "",
+            password: "",
+          });
+        } else {
+          toast(response.message, {
+            type: "error",
+            position: "top-right",
+            autoClose: 2000,
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Registration error:", error.message);
+        toast(error.message, {
+          type: "error",
+          position: "top-right",
+          autoClose: 2000,
+        });
+      });
+  };
   return (
     <div className={styles.formContainer}>
       <h1>Admin Login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label for="email">Email: </label>
           <input
             type="text"
             id="email"
             placeholder="Enter your email address"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -20,6 +94,9 @@ const Login = () => {
             type="password"
             id="password"
             placeholder="Enter your Password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">Login</button>
