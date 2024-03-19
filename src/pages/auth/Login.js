@@ -87,6 +87,7 @@ const Login = () => {
             value={formData.email}
             onChange={handleChange}
           />
+          {errors.email && <span className="formerror">{errors.email}</span>}
         </div>
         <div>
           <label for="password">Password: </label>
@@ -98,6 +99,9 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
           />
+          {errors.password && (
+            <span className="formerror">{errors.password}</span>
+          )}
         </div>
         <button type="submit">Login</button>
       </form>
