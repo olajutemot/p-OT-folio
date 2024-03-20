@@ -2,17 +2,42 @@ import React, { useState, useEffect } from "react";
 import styles from "./addBlogs.module.css";
 
 import Navbar from "../../components/Navbar/Navbar";
-import "./addblog.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import ClockLoader from "react-spinners/ClockLoader";
 
-
-
-
-
-const AddBlogs=()=> {
+const AddBlogs = () => {
   let [loading, setLoading] = useState(false);
+
+  const checkLogin = async () => {
+    fetch("http://localhost:8000/auth/checklogin", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+
+        if (response.ok) {
+        } else {
+          console.log(response);
+          //   window.location.href = "/pages/auth/signin";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        // window.location.href = "/pages/auth/signin";
+      });
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
 
   const [blog, setBlog] = useState({
     title: "",
@@ -26,7 +51,7 @@ const AddBlogs=()=> {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/blogcategories`)
+    fetch("http://localhost:8000/blogcategories")
       .then((res) => res.json())
       .then((response) => {
         setCategories(response.categories);
@@ -89,13 +114,10 @@ const AddBlogs=()=> {
       const formData = new FormData();
       formData.append("myimage", image);
 
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_API}/image/uploadimage`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("http://localhost:8000/image/uploadimage", {
+        method: "POST",
+        body: formData,
+      });
       if (response.ok) {
         const data = await response.json();
         console.log("Image uploaded successfully:", data);
@@ -130,17 +152,14 @@ const AddBlogs=()=> {
       }
     }
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_API}/blog`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(blog),
-        credentials: "include",
-      }
-    );
+    const response = await fetch("http://localhost:8000/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(blog),
+      credentials: "include",
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -158,7 +177,6 @@ const AddBlogs=()=> {
 
   return (
     <div>
-
       {loading && (
         <div className="loaderfullpage">
           <ClockLoader
@@ -187,9 +205,7 @@ const AddBlogs=()=> {
               type="text"
               placeholder="Enter Blog Title"
               value={blog.title}
-              onChange={(e) =>
-                setBlog({ ...blog, title: e.target.value })
-              }
+              onChange={(e) => setBlog({ ...blog, title: e.target.value })}
             />
           </div>
 
@@ -197,9 +213,7 @@ const AddBlogs=()=> {
             <label>Blog Category</label>
             <select
               value={blog.category}
-              onChange={(e) =>
-                setBlog({ ...blog, category: e.target.value })
-              }
+              onChange={(e) => setBlog({ ...blog, category: e.target.value })}
             >
               <option value="">Select a category</option>
               {categories.map((category) => (
@@ -249,7 +263,7 @@ const AddBlogs=()=> {
                 {paragraph.image && (
                   <img
                     src={URL.createObjectURL(paragraph.image)}
-                    alt={`Image for ${paragraph.title}`}
+                    alt={paragraph.title}
                   />
                 )}
               </div>
@@ -268,8 +282,76 @@ const AddBlogs=()=> {
                     ...paragraphForm,
                     position: e.target.value,
                   })
-                }/>
+                }
+              />
+            </div>
+            <div className="forminput_cont">
+              <label>Paragraph Title</label>
+              <input
+                type="text"
+                value={paragraphForm.title}
+                placeholder="Enter paragraph Title"
+                onChange={(e) =>
+                  setParagraphForm({ ...paragraphForm, title: e.target.value })
+                }
+              />
+            </div>
+            <div className="forminput_cont">
+              <label>Paragraph Description</label>
+              <textarea
+                placeholder="Enter Paragraph Description"
+                value={paragraphForm.description}
+                onChange={(e) =>
+                  setParagraphForm({
+                    ...paragraphForm,
+                    description: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="forminput_cont">
+              <label>Paragraph Image</label>
+              <input
+                type="file"
+                id="pgimg"
+                onChange={(e) => {
+                  const selectedImage = e.target.files?.[0]; // Get the selected image file
+                  if (selectedImage) {
+                    // const imageUrl = URL.createObjectURL(selectedImage); // Create a URL for the selected image
+                    setParagraphForm({
+                      ...paragraphForm,
+                      image: selectedImage,
+                    }); // Update the paragraphImage state with the URL
+                  }
+                }}
+              />
+            </div>
+            <button
+              type="button"
+              className="main_button"
+              onClick={(e) => {
+                e.preventDefault(); // Prevent the default form submission
+                pushParagraphToBlog();
+              }}
+            >
+              Add Paragraph To Blog
+            </button>
+          </div>
 
-               
+          <button
+            type="submit"
+            className="main_button"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent the default form submission
+              uploadBLog();
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
-                export default AddBlogs
+export default AddBlogs;

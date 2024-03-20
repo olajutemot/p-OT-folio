@@ -56,6 +56,7 @@ const Login = () => {
             email: "",
             password: "",
           });
+          window.location.href = "/addblog";
         } else {
           toast(response.message, {
             type: "error",
