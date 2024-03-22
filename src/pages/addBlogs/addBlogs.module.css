@@ -1,0 +1,202 @@
+:root {
+  --col1: #ffde59;
+  --col2: #1f1f1f;
+  --col1light: #ffde594c;
+  --errorcol: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.addblog_in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  /* background-color: var(--col2); */
+}
+
+/* CSS for the blog paragraph container */
+.blogtempparagraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Adjust the gap between paragraphs */
+  margin-top: 20px;
+  /* Add some spacing from the previous content */
+}
+
+/* CSS for each paragraph */
+.blogtempparagraphs > div {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* CSS for paragraph title */
+.blogtempparagraphs h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--col1);
+}
+
+/* CSS for paragraph description */
+.blogtempparagraphs p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* CSS for paragraph image */
+.blogtempparagraphs img {
+  max-width: 40%;
+  /* Ensure the image fits within the container */
+  height: auto;
+  border-radius: 5px;
+  height: 200px;
+}
+
+.blogtempparagraphs .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 30px;
+  color: #ff0000;
+}
+.head1 {
+  font-size: 30px;
+  font-weight: 500;
+  font-family: sans-serif;
+  color: var(--col1);
+}
+
+.forminput_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+  gap: 10px;
+  width: 100%;
+}
+
+.forminput_cont input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border: 1px solid var(--col1);
+}
+
+.forminput_cont input:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px 0px var(--col1);
+}
+
+.forminput_cont select {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  margin: 0;
+  width: 95%;
+  display: block;
+  border: 1px solid var(--col1);
+}
+
+.forminput_cont textarea {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border: 1px solid var(--col1);
+  min-height: 300px;
+}
+
+.forminput_cont textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px 0px var(--col1);
+}
+
+.forminput_cont label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  /* margin-left: 2rem; */
+  margin-top: 0.7rem;
+  display: block;
+  color: var(--col1);
+  width: 100%;
+  margin-left: 40px;
+}
+
+.paragraph {
+  margin: 30px 20px;
+  box-shadow: 0px 0px 10px 0px var(--col1);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col1light);
+  justify-content: center;
+  align-items: center;
+}
+
+.main_button {
+  background-color: white;
+  /* Green */
+
+  color: var(--col1);
+  font-weight: 600;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid var(--col1);
+  width: fit-content;
+  align-self: center;
+  margin: 10px;
+}
+
+.main_button:hover {
+  border: 1px solid var(--col1);
+  background-color: var(--col1);
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.formerror {
+  color: var(--errorcol);
+}
+
+.loaderfullpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f43;
+  position: fixed;
+  z-index: 999;
+}

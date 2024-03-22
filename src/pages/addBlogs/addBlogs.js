@@ -189,8 +189,8 @@ const AddBlogs = () => {
         </div>
       )}
       <Navbar />
-      <div className="addblog_in">
-        <h1 className="head1">Add Blog</h1>
+      <div className={styles.addblog_in}>
+        <h1 className={styles.head1}>Add Blog</h1>
         <form
           style={{
             width: "70%",
@@ -199,7 +199,7 @@ const AddBlogs = () => {
             flexDirection: "column",
           }}
         >
-          <div className="forminput_cont">
+          <div className={styles.forminput_cont}>
             <label>Blog Name</label>
             <input
               type="text"
@@ -209,7 +209,7 @@ const AddBlogs = () => {
             />
           </div>
 
-          <div className="forminput_cont">
+          <div className={styles.forminput_cont}>
             <label>Blog Category</label>
             <select
               value={blog.category}
@@ -223,7 +223,7 @@ const AddBlogs = () => {
               ))}
             </select>
           </div>
-          <div className="forminput_cont">
+          <div className={styles.forminput_cont}>
             <label>Blog Description</label>
             <textarea
               placeholder="Enter Blog Description"
@@ -234,7 +234,7 @@ const AddBlogs = () => {
             />
           </div>
 
-          <div className="forminput_cont">
+          <div className={styles.forminput_cont}>
             <label>Blog Image</label>
             <input
               type="file"
@@ -247,11 +247,11 @@ const AddBlogs = () => {
             />
           </div>
 
-          <div className="blogtempparagraphs">
+          <div className={styles.blogtempparagraphs}>
             {blog.paragraphs.sort(sortParagraphs).map((paragraph) => (
               <div key={String(paragraph.createdAt)}>
                 <AiFillCloseCircle
-                  className="closebtn"
+                  className={styles.closebtn}
                   onClick={() => {
                     deleteParagraph(paragraph);
                   }}
@@ -270,8 +270,8 @@ const AddBlogs = () => {
             ))}
           </div>
 
-          <div className="paragraph">
-            <div className="forminput_cont">
+          <div className={styles.paragraph}>
+            <div className={styles.forminput_cont}>
               <label>Paragraph Position</label>
               <input
                 type="number"
@@ -285,7 +285,7 @@ const AddBlogs = () => {
                 }
               />
             </div>
-            <div className="forminput_cont">
+            <div className={styles.forminput_cont}>
               <label>Paragraph Title</label>
               <input
                 type="text"
@@ -296,7 +296,7 @@ const AddBlogs = () => {
                 }
               />
             </div>
-            <div className="forminput_cont">
+            <div className={styles.forminput_cont}>
               <label>Paragraph Description</label>
               <textarea
                 placeholder="Enter Paragraph Description"
@@ -309,7 +309,7 @@ const AddBlogs = () => {
                 }
               />
             </div>
-            <div className="forminput_cont">
+            <div className={styles.forminput_cont}>
               <label>Paragraph Image</label>
               <input
                 type="file"
@@ -328,7 +328,7 @@ const AddBlogs = () => {
             </div>
             <button
               type="button"
-              className="main_button"
+              className={styles.main_button}
               onClick={(e) => {
                 e.preventDefault(); // Prevent the default form submission
                 pushParagraphToBlog();
@@ -340,7 +340,7 @@ const AddBlogs = () => {
 
           <button
             type="submit"
-            className="main_button"
+            className={styles.main_button}
             onClick={(e) => {
               e.preventDefault(); // Prevent the default form submission
               uploadBLog();
