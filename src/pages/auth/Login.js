@@ -42,6 +42,7 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((response) => {
@@ -56,7 +57,8 @@ const Login = () => {
             email: "",
             password: "",
           });
-          window.location.href = "/addblog";
+          checkLogin();
+          //window.location.href = "/addblog";
         } else {
           toast(response.message, {
             type: "error",
@@ -72,6 +74,32 @@ const Login = () => {
           position: "top-right",
           autoClose: 2000,
         });
+      });
+  };
+  const checkLogin = async () => {
+    fetch("http://localhost:8000/auth/checklogin", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+
+        if (response.ok) {
+          window.location.href = "/addblog";
+        } else {
+          console.log(response);
+          window.location.href = "/login";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        window.location.href = "/login";
       });
   };
   return (

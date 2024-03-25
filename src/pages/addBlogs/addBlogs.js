@@ -26,12 +26,12 @@ const AddBlogs = () => {
         if (response.ok) {
         } else {
           console.log(response);
-          //   window.location.href = "/pages/auth/signin";
+          window.location.href = "/login";
         }
       })
       .catch((error) => {
         console.log(error);
-        // window.location.href = "/pages/auth/signin";
+        window.location.href = "/login";
       });
   };
 
@@ -152,7 +152,7 @@ const AddBlogs = () => {
       }
     }
 
-    const response = await fetch("http://localhost:8000/blog", {
+    const response = await fetch("http://localhost:8000/blog/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -163,9 +163,12 @@ const AddBlogs = () => {
 
     if (response.ok) {
       const data = await response.json();
+
       toast("Blog post created successfully");
       setLoading(false);
+      console.log("blog posted succfully ", data);
     } else {
+      console.log(response);
       toast("Failed to create the blog post");
       setLoading(false);
     }

@@ -21,6 +21,7 @@ const Navbar = () => {
           <i class="fa-solid fa-magnifying-glass"></i>
           {/* <i class="fa-solid fa-plus"></i>
           <i class="fa-regular fa-user"></i> */}
+          <button type="">logout</button>
         </div>
       </nav>
     </div>

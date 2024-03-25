@@ -4,9 +4,15 @@ import styles from "./blogCards.module.css";
 const width = window.innerWidth;
 // const height = window.innerHeight;
 
-const BlogCards = () => {
+const BlogCards = (data) => {
+  const { title, imageUrl, category, _id } = data;
   return (
-    <div>
+    <div
+      onClick={() => {
+        // router.push(`/pages/blogpage?blogid=${_id}`)
+        window.location.href = `/blogpage?blogid=${_id}`;
+      }}
+    >
       <section className={styles.blogCards}>
         <div className={styles.blogCard}>
           <img
@@ -15,7 +21,7 @@ const BlogCards = () => {
             width={width / 4}
           />
           <a href="/">coding</a>
-          <h2>This is my first blog title</h2>
+          <h2>{title}</h2>
           <p>this is my first blog description</p>
           <p>Last Updated: </p>
         </div>
