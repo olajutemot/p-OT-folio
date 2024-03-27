@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./addBlogs.module.css";
 
 import Navbar from "../../components/Navbar/Navbar";
-import { AiFillCloseCircle } from "react-icons/ai";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+// import { AiFillCloseCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import ClockLoader from "react-spinners/ClockLoader";
 
@@ -65,49 +67,49 @@ const AddBlogs = () => {
     getCategories();
   }, []);
 
-  const [paragraphForm, setParagraphForm] = useState({
-    title: "",
-    description: "",
-    image: null,
-    imageUrl: "",
-    position: "",
-    createdAt: null,
-  });
+  // const [paragraphForm, setParagraphForm] = useState({
+  //   title: "",
+  //   description: "",
+  //   image: null,
+  //   imageUrl: "",
+  //   position: "",
+  //   createdAt: null,
+  // });
 
-  const pushParagraphToBlog = () => {
-    let tempPg = paragraphForm;
-    tempPg.createdAt = new Date().getTime();
-    setBlog({
-      ...blog,
-      paragraphs: [...blog.paragraphs, paragraphForm],
-    });
+  // const pushParagraphToBlog = () => {
+  //   let tempPg = paragraphForm;
+  //   tempPg.createdAt = new Date().getTime();
+  //   setBlog({
+  //     ...blog,
+  //     paragraphs: [...blog.paragraphs, paragraphForm],
+  //   });
 
-    let nextPosition = String(parseInt(paragraphForm.position) + 1);
-    setParagraphForm({
-      ...paragraphForm,
-      title: "",
-      description: "",
-      position: nextPosition,
-      createdAt: null,
-    });
-  };
+  //   let nextPosition = String(parseInt(paragraphForm.position) + 1);
+  //   setParagraphForm({
+  //     ...paragraphForm,
+  //     title: "",
+  //     description: "",
+  //     position: nextPosition,
+  //     createdAt: null,
+  //   });
+  // };
 
-  const deleteParagraph = (paragraph) => {
-    const updatedParagraphs = blog.paragraphs.filter(
-      (p) => p.createdAt !== paragraph.createdAt
-    );
-    setBlog({
-      ...blog,
-      paragraphs: updatedParagraphs,
-    });
-  };
+  // const deleteParagraph = (paragraph) => {
+  //   const updatedParagraphs = blog.paragraphs.filter(
+  //     (p) => p.createdAt !== paragraph.createdAt
+  //   );
+  //   setBlog({
+  //     ...blog,
+  //     paragraphs: updatedParagraphs,
+  //   });
+  // };
 
-  const sortParagraphs = (a, b) => {
-    if (a.position === b.position) {
-      return b.createdAt - a.createdAt;
-    }
-    return a.position.localeCompare(b.position);
-  };
+  // const sortParagraphs = (a, b) => {
+  //   if (a.position === b.position) {
+  //     return b.createdAt - a.createdAt;
+  //   }
+  //   return a.position.localeCompare(b.position);
+  // };
 
   const uploadImage = async (image) => {
     try {
@@ -144,13 +146,13 @@ const AddBlogs = () => {
       let imgUrl = await uploadImage(blog.image);
       tempblog.imageUrl = imgUrl;
     }
-    for (let i = 0; i < tempblog.paragraphs.length; i++) {
-      let tempimg = tempblog.paragraphs[i].image;
-      if (tempimg) {
-        let imgURL = await uploadImage(tempimg);
-        tempblog.paragraphs[i].imageUrl = imgURL;
-      }
-    }
+    // for (let i = 0; i < tempblog.paragraphs.length; i++) {
+    //   let tempimg = tempblog.paragraphs[i].image;
+    //   if (tempimg) {
+    //     let imgURL = await uploadImage(tempimg);
+    //     tempblog.paragraphs[i].imageUrl = imgURL;
+    //   }
+    // }
 
     const response = await fetch("http://localhost:8000/blog/", {
       method: "POST",
@@ -250,7 +252,7 @@ const AddBlogs = () => {
             />
           </div>
 
-          <div className={styles.blogtempparagraphs}>
+          {/* <div className={styles.blogtempparagraphs}>
             {blog.paragraphs.sort(sortParagraphs).map((paragraph) => (
               <div key={String(paragraph.createdAt)}>
                 <AiFillCloseCircle
@@ -339,8 +341,8 @@ const AddBlogs = () => {
             >
               Add Paragraph To Blog
             </button>
-          </div>
-
+          </div> */}
+          <ReactQuill />
           <button
             type="submit"
             className={styles.main_button}

@@ -107,7 +107,7 @@ const BlogPage = () => {
             )}
             <p className="description">{blog.description}</p>
           </div>
-          {blog.paragraphs.map((paragraph, index) => (
+          {/* {blog.paragraphs.map((paragraph, index) => (
             <div className={index % 2 === 0 ? "c2left" : "c2right"} key={index}>
               {paragraph.imageUrl.length > 0 && (
                 <img
@@ -121,7 +121,7 @@ const BlogPage = () => {
                 <p className="description">{paragraph.description}</p>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
       )}
       <Footer />

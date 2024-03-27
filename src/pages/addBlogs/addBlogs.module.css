@@ -8,6 +8,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .addblog_in {
@@ -19,18 +20,18 @@
   /* background-color: var(--col2); */
 }
 
-/* CSS for the blog paragraph container */
+/* CSS for the blog paragraph container
 .blogtempparagraphs {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* Adjust the gap between paragraphs */
+  Adjust the gap between paragraphs
   margin-top: 20px;
-  /* Add some spacing from the previous content */
-}
+  Add some spacing from the previous content
+} */
 
 /* CSS for each paragraph */
-.blogtempparagraphs > div {
+/* .blogtempparagraphs > div {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
@@ -40,38 +41,38 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-}
+} */
 
 /* CSS for paragraph title */
-.blogtempparagraphs h1 {
+/* .blogtempparagraphs h1 {
   font-size: 20px;
   margin-bottom: 10px;
   color: var(--col1);
-}
+} */
 
 /* CSS for paragraph description */
-.blogtempparagraphs p {
+/* .blogtempparagraphs p {
   font-size: 1rem;
   margin-bottom: 10px;
   color: #333;
-}
+} */
 
 /* CSS for paragraph image */
-.blogtempparagraphs img {
+/* .blogtempparagraphs img {
   max-width: 40%;
-  /* Ensure the image fits within the container */
+  Ensure the image fits within the container
   height: auto;
   border-radius: 5px;
   height: 200px;
-}
+} */
 
-.blogtempparagraphs .closebtn {
+/* .blogtempparagraphs .closebtn {
   position: absolute;
   top: 0;
   left: 0;
   font-size: 30px;
   color: #ff0000;
-}
+} */
 .head1 {
   font-size: 30px;
   font-weight: 500;
@@ -88,38 +89,8 @@
   width: 100%;
 }
 
-.forminput_cont input {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-  padding: 1rem 2rem;
-  border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  width: 90%;
-  display: block;
-  border: 1px solid var(--col1);
-}
-
-.forminput_cont input:focus {
-  outline: none;
-  box-shadow: 0px 0px 10px 0px var(--col1);
-}
-
-.forminput_cont select {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-  padding: 1rem 2rem;
-  border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  margin: 0;
-  width: 95%;
-  display: block;
-  border: 1px solid var(--col1);
-}
-
+.forminput_cont input,
+.forminput_cont select,
 .forminput_cont textarea {
   font-family: "Roboto", sans-serif;
   color: #333;
@@ -131,13 +102,36 @@
   width: 90%;
   display: block;
   border: 1px solid var(--col1);
-  min-height: 300px;
 }
 
+.forminput_cont input:focus,
 .forminput_cont textarea:focus {
   outline: none;
   box-shadow: 0px 0px 10px 0px var(--col1);
 }
+
+/* .forminput_cont select {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  margin: 0;
+  width: 90%;
+  display: block;
+  border: 1px solid var(--col1);
+} */
+
+.forminput_cont textarea {
+  min-height: 200px;
+}
+/* 
+.forminput_cont textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px 0px var(--col1);
+} */
 
 .forminput_cont label {
   font-family: "Roboto", sans-serif;
@@ -150,7 +144,7 @@
   margin-left: 40px;
 }
 
-.paragraph {
+/* .paragraph {
   margin: 30px 20px;
   box-shadow: 0px 0px 10px 0px var(--col1);
   display: flex;
@@ -158,7 +152,7 @@
   background-color: var(--col1light);
   justify-content: center;
   align-items: center;
-}
+} */
 
 .main_button {
   background-color: white;

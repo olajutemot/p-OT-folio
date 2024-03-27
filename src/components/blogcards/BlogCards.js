@@ -2,41 +2,38 @@ import React from "react";
 import styles from "./blogCards.module.css";
 
 const width = window.innerWidth;
-// const height = window.innerHeight;
 
-const BlogCards = (data) => {
-  const { title, imageUrl, category, _id } = data;
+const BlogCards = ({ blogs }) => {
+  console.log(blogs);
+
+  const extractFirstParagraph = (text) => {
+    // Split the text into paragraphs based on new lines
+    const paragraphs = text.split("\t");
+    // Return the first paragraph
+    return paragraphs[0];
+  };
+
   return (
-    <div
-      onClick={() => {
-        // router.push(`/pages/blogpage?blogid=${_id}`)
-        window.location.href = `/blogpage?blogid=${_id}`;
-      }}
-    >
-      <section className={styles.blogCards}>
-        <div className={styles.blogCard}>
-          <img
-            src="../p-OT-folio/menu/project tile 8.png"
-            alt=""
-            width={width / 4}
-          />
-          <a href="/">coding</a>
-          <h2>{title}</h2>
-          <p>this is my first blog description</p>
-          <p>Last Updated: </p>
+    <div className={styles.blogcardContainer}>
+      {blogs.map((blog) => (
+        <div
+          key={blog._id}
+          className={styles.blogCards}
+          onClick={() => {
+            window.location.href = `/blogpage?blogid=${blog._id}`;
+          }}
+        >
+          <section className={styles.blogCard}>
+            <div>
+              <img src={blog.imageUrl} alt="" width={width / 4} />
+              <a href="/">{blog.category}</a>
+              <h2>{blog.title}</h2>
+              <p>{extractFirstParagraph(blog.description)}</p>
+              <p>Last Updated: </p>
+            </div>
+          </section>
         </div>
-        <div className={styles.blogCard}>
-          <img
-            src="../p-OT-folio/menu/project tile 8.png"
-            alt=""
-            width={width / 4}
-          />
-          <a href="/">coding</a>
-          <h2>This is my first blog title</h2>
-          <p>this is my first blog description</p>
-          <p>Last Updated: </p>
-        </div>
-      </section>
+      ))}
     </div>
   );
 };
