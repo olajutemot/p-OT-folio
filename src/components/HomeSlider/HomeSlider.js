@@ -57,27 +57,8 @@ const HomeSlider = () => {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
-        style={{
-          padding: "20px",
-        }}
+        className={styles.mySwiper}
       >
-        {/* <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src="../p-OT-folio/menu/javascript promise.jpg"
-            alt=""
-            width={width / 2}
-            height={height / 1.5}
-            style={{ objectfit: "cover", padding: "20px" }}
-          />
-        </SwiperSlide> */}
-
         {blogs.map((blog) => (
           <SwiperSlide
             key={blog._id}
@@ -87,7 +68,7 @@ const HomeSlider = () => {
               alignItems: "center",
             }}
           >
-            <img src={blog.imageUrl} alt="" />
+            <img src={blog.imageUrl} alt="" className={styles.sliderimg} />
           </SwiperSlide>
         ))}
       </Swiper>

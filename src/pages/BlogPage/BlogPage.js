@@ -84,7 +84,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="blogpage-out">
+    <div className={styles.blogpages}>
       <Navbar />
       {loading && blog._id === "" ? (
         <div className="loaderfullpage">
@@ -97,7 +97,7 @@ const BlogPage = () => {
           />
         </div>
       ) : (
-        <div className="blogpage">
+        <div className={styles.blogpage}>
           <div className="c1">
             <p className="createdat">Created at {blogcreatedat}</p>
             <p className="title">{blog.title}</p>
@@ -105,7 +105,7 @@ const BlogPage = () => {
             {blog.imageUrl.length > 0 && (
               <img src={blog.imageUrl} alt={blog.title} className="blogimg" />
             )}
-            <p className="description">{blog.description}</p>
+            <p className="description">{blog.content}</p>
           </div>
           {/* {blog.paragraphs.map((paragraph, index) => (
             <div className={index % 2 === 0 ? "c2left" : "c2right"} key={index}>

@@ -1,3 +1,27 @@
 .container {
-  margin: 2rem 0;
+  margin: 2rem 0 0 0;
+}
+.container h1 {
+  text-align: center;
+}
+.mySwiper {
+  /* border: 2px solid red; */
+  margin: 2rem;
+  padding: 40px;
+}
+
+/* .sliderimgconatiner {
+  border: 2px solid red;
+} */
+
+/* .slider {
+  border: 2px solid red;
+} */
+.sliderimg {
+  /* border: 2px solid red; */
+  object-fit: cover;
+  /* max-width: 400px; */
+  /* width: 60%; */
+  height: auto;
+  max-height: 300px;
 }
