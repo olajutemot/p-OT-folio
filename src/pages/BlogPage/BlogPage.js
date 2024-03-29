@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import styles from "./blogPage.module.css";
 import ClockLoader from "react-spinners/ClockLoader";
+import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   const [loading, setLoading] = useState(false);
@@ -12,21 +13,23 @@ const BlogPage = () => {
     title: "",
     description: "",
     imageUrl: "",
-    paragraphs: [],
+    content: "",
     category: "",
     owner: "",
     createdAt: "",
     updatedAt: "",
   });
   const [blogcreatedat, setBlogcreatedat] = useState("");
+  const queryParams = new URLSearchParams(window.location.search);
+  const blogid = queryParams.get("blogid");
+
+  // const params = useParams();
+  // console.log(params);
+  console.log(blogid);
 
   const getBlogbyId = () => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const blogid = queryParams.get("blogid");
-    console.log(blogid);
     if (blogid) {
       setLoading(true);
-      // Replace this with your backend API URL
       fetch(`http://localhost:8000/blog/${blogid}`, {
         method: "GET",
         headers: {
@@ -36,8 +39,11 @@ const BlogPage = () => {
         .then((res) => res.json())
         .then((response) => {
           setLoading(false);
+          // console.log(response);
           if (response.ok) {
+            console.log(response.data.blog);
             setBlog(response.data.blog);
+            console.log(blog.title);
             const formattedDate = formatDate(response.data.blog.createdAt);
             setBlogcreatedat(formattedDate);
           } else {
@@ -98,15 +104,19 @@ const BlogPage = () => {
         </div>
       ) : (
         <div className={styles.blogpage}>
-          <div className="c1">
-            <p className="createdat">Created at {blogcreatedat}</p>
-            <p className="title">{blog.title}</p>
-            <p className="category">{blog.category}</p>
-            {blog.imageUrl.length > 0 && (
-              <img src={blog.imageUrl} alt={blog.title} className="blogimg" />
-            )}
-            <p className="description">{blog.content}</p>
-          </div>
+          <h1 className="title">{blog.title}</h1>
+          <p className="createdat">Created at {blogcreatedat}</p>
+
+          <p className="category">{blog.category}</p>
+          <Link className={styles.editbtn} to={`/editpost?blogid=${blog._id}`}>
+            Edit post
+          </Link>
+          {blog.imageUrl.length > 0 && (
+            <img src={blog.imageUrl} alt={blog.title} className="blogimg" />
+          )}
+          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+          {/* <p className="description">{blog.content}</p> */}
+
           {/* {blog.paragraphs.map((paragraph, index) => (
             <div className={index % 2 === 0 ? "c2left" : "c2right"} key={index}>
               {paragraph.imageUrl.length > 0 && (

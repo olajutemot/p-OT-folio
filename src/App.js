@@ -7,6 +7,7 @@ import SignUp from "./pages/auth/signup";
 import Login from "./pages/auth/Login";
 import AddBlogs from "./pages/addBlogs/addBlogs";
 import BlogPage from "./pages/BlogPage/BlogPage";
+import EditBlog from "./pages/editBlog/EditBlog";
 // import Contact from "./pages/contact";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/addblog" element={<AddBlogs />} />
         <Route path="/blogpage" element={<BlogPage />} />
+        <Route path="/editpost" element={<EditBlog />} />
       </Routes>
     </Router>
   );
