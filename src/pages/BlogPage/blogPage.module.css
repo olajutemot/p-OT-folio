@@ -7,20 +7,25 @@
 .blogpage {
   width: 70%;
   min-width: 750px;
-  margin: 100px auto 0;
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 20px;
 }
-.editbtn {
-  background-color: #333;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #fff;
-  padding: 15px 30px;
-  border-radius: 5px;
-  text-decoration: none;
+.blogdate {
+  color: rgb(168, 168, 168);
+}
+.blogcontent {
+  width: 80%;
+  margin: 1rem auto;
+  /* border: 2px solid red; */
+}
+.blogcontent h1 {
+  font-size: 3rem;
+}
+.blogcontent hr {
+  width: 25%;
+  margin: 1.5rem 0 0;
 }

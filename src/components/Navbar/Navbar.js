@@ -11,10 +11,10 @@ const Navbar = () => {
           <Link to={"/blogs"} className={styles.Anchors}>
             HOME
           </Link>
-          <Link href="/" className={styles.Anchors}>
+          <Link to={"/about"} className={styles.Anchors}>
             ABOUT
           </Link>
-          <Link href="/" className={styles.Anchors}>
+          <Link to={"/CNS"} className={styles.Anchors}>
             CODINGNIGHTSCHOOL
           </Link>
         </div>
@@ -22,7 +22,9 @@ const Navbar = () => {
           <i class="fa-solid fa-magnifying-glass"></i>
           {/* <i class="fa-solid fa-plus"></i>
           <i class="fa-regular fa-user"></i> */}
-          <button type="">logout</button>
+          <button type="" className={styles.logout}>
+            logout
+          </button>
         </div>
       </nav>
     </div>

@@ -17,7 +17,7 @@ const Home = () => {
       {portfolio || blog || (
         <div className="container">
           <img src="../p-OT-folio/menu/Timmy Headshot.png" alt="Timilehin" />
-          <header>
+          <header className="Homeheader">
             <h1>Hey I am olajutemo Timilehin</h1>
             <p>I am a Front-end Web Developer & software Engineer</p>
           </header>

@@ -20,64 +20,11 @@
   /* background-color: var(--col2); */
 }
 
-/* CSS for the blog paragraph container
-.blogtempparagraphs {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  Adjust the gap between paragraphs
-  margin-top: 20px;
-  Add some spacing from the previous content
-} */
-
-/* CSS for each paragraph */
-/* .blogtempparagraphs > div {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-} */
-
-/* CSS for paragraph title */
-/* .blogtempparagraphs h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: var(--col1);
-} */
-
-/* CSS for paragraph description */
-/* .blogtempparagraphs p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #333;
-} */
-
-/* CSS for paragraph image */
-/* .blogtempparagraphs img {
-  max-width: 40%;
-  Ensure the image fits within the container
-  height: auto;
-  border-radius: 5px;
-  height: 200px;
-} */
-
-/* .blogtempparagraphs .closebtn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 30px;
-  color: #ff0000;
-} */
 .head1 {
   font-size: 30px;
   font-weight: 500;
   font-family: sans-serif;
-  color: var(--col1);
+  color: var(--button-background);
 }
 
 .forminput_cont {
@@ -101,13 +48,13 @@
   border: none;
   width: 90%;
   display: block;
-  border: 1px solid var(--col1);
+  border: 1px solid var(--button-background);
 }
 
 .forminput_cont input:focus,
 .forminput_cont textarea:focus {
   outline: none;
-  box-shadow: 0px 0px 10px 0px var(--col1);
+  box-shadow: 0px 0px 10px 0px var(--button-background);
 }
 
 /* .forminput_cont select {
@@ -139,7 +86,7 @@
   /* margin-left: 2rem; */
   margin-top: 0.7rem;
   display: block;
-  color: var(--col1);
+  color: var(--button-background);
   width: 100%;
   margin-left: 40px;
 }
@@ -161,22 +108,22 @@
   background-color: white;
   /* Green */
 
-  color: var(--col1);
+  color: var(--button-background);
   font-weight: 600;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   border: none;
-  border-bottom: 1px solid var(--col1);
+  border-bottom: 1px solid var(--button-background);
   width: fit-content;
   align-self: center;
   margin: 10px;
 }
 
 .main_button:hover {
-  border: 1px solid var(--col1);
-  background-color: var(--col1);
+  border: 1px solid var(--button-background);
+  background-color: var(--button-background);
   border-radius: 10px;
   color: #ffffff;
   cursor: pointer;

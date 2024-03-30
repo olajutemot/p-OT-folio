@@ -9,7 +9,7 @@
 .Navbar {
   width: 70%;
   margin: 0 auto;
-
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,4 +28,22 @@
 .Anchors {
   color: rgb(183, 181, 181);
   text-decoration: none;
+}
+.Icons {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logout {
+  /* margin: 2rem auto; */
+  width: 10em;
+  padding: 10px 10px;
+  font-size: 1rem;
+  background-color: var(--button-background);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 30px;
 }

@@ -104,34 +104,29 @@ const BlogPage = () => {
         </div>
       ) : (
         <div className={styles.blogpage}>
-          <h1 className="title">{blog.title}</h1>
-          <p className="createdat">Created at {blogcreatedat}</p>
+          <div className={styles.blogcontent}>
+            <p className="category">{blog.category}</p>
+            <h1 className="title">{blog.title}</h1>
+            <div>
+              <hr></hr>
+              <p className={styles.blogdate}>Created at {blogcreatedat}</p>
+            </div>
+          </div>
 
-          <p className="category">{blog.category}</p>
-          <Link className={styles.editbtn} to={`/editpost?blogid=${blog._id}`}>
+          <Link className="main_button" to={`/editpost?blogid=${blog._id}`}>
             Edit post
           </Link>
           {blog.imageUrl.length > 0 && (
-            <img src={blog.imageUrl} alt={blog.title} className="blogimg" />
+            <img
+              src={blog.imageUrl}
+              alt={blog.title}
+              className={styles.blogcontent}
+            />
           )}
-          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-          {/* <p className="description">{blog.content}</p> */}
-
-          {/* {blog.paragraphs.map((paragraph, index) => (
-            <div className={index % 2 === 0 ? "c2left" : "c2right"} key={index}>
-              {paragraph.imageUrl.length > 0 && (
-                <img
-                  src={paragraph.imageUrl}
-                  alt={blog.title}
-                  className="paraimg"
-                />
-              )}
-              <div>
-                <p className="title">{paragraph.title}</p>
-                <p className="description">{paragraph.description}</p>
-              </div>
-            </div>
-          ))} */}
+          <div
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+            className={styles.blogcontent}
+          />
         </div>
       )}
       <Footer />

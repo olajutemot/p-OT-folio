@@ -7,12 +7,7 @@ import { toast } from "react-toastify";
 const EditBlog = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const blogid = queryParams.get("blogid");
-  // console.log(blogid);
-  //   const [title, setTitle] = useState("");
-  //   const [summary, setSummary] = useState("");
-  //   const [content, setContent] = useState("");
-  //   const [files, setFiles] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [blog, setBlog] = useState({
     title: "",
     description: "",
@@ -36,19 +31,9 @@ const EditBlog = () => {
   useEffect(() => {
     getCategories();
   }, []);
-
-  //   useEffect(() => {
-  //     fetch(`http://localhost:8000/blogs/${id}`).then((response) => {
-  //       response.json().then((postInfo) => {
-  //         setTitle(postInfo.title);
-  //         setContent(postInfo.content);
-  //         setSummary(postInfo.summary);
-  //       });
-  //     });
-  //   }, []);
   useEffect(() => {
     if (blogid) {
-      setLoading(true);
+      // setLoading(true);
       fetch(`http://localhost:8000/blog/${blogid}`, {
         method: "GET",
         headers: {
@@ -57,10 +42,10 @@ const EditBlog = () => {
       })
         .then((res) => res.json())
         .then((response) => {
-          setLoading(false);
+          // setLoading(false);
           // console.log(response);
           if (response.ok) {
-            console.log(response.data.blog);
+            // console.log(response.data.blog.content);
             setBlog(response.data.blog);
             // console.log(blog.title);
             // const formattedDate = formatDate(response.data.blog.createdAt);
@@ -72,7 +57,7 @@ const EditBlog = () => {
           }
         })
         .catch((error) => {
-          setLoading(false);
+          // setLoading(false);
           toast(error.message, {
             type: "error",
           });
@@ -80,32 +65,46 @@ const EditBlog = () => {
     }
   }, []);
 
-  async function updatePost(ev) {
-    ev.preventDefault();
-    const data = new FormData();
-    // data.set("title", title);
-    // data.set("summary", summary);
-    // data.set("content", content);
-    // data.set("id", id);
-    // if (files?.[0]) {
-    //   data.set("file", files?.[0]);
-    // }
-    data.set(...blog);
-    const response = await fetch(`http://localhost:8000/blog/${blogid}`, {
-      method: "PUT",
-      body: data,
-      credentials: "include",
-    });
-    console.log(response);
-    if (response.ok) {
-      setRedirect(true);
+  async function updatePost(e) {
+    e.preventDefault();
+
+    try {
+      const requestData = {
+        title: blog.title,
+        description: blog.description,
+        category: blog.category,
+        // Include other properties as needed
+        content: blog.content,
+      };
+
+      if (blog.image) {
+        requestData.image = blog.image;
+      }
+
+      const response = await fetch(`http://localhost:8000/blog/${blogid}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        toast("Blog post updated successfully");
+        setRedirect(true);
+      } else {
+        const responseData = await response.json();
+        throw new Error(responseData.message);
+      }
+    } catch (error) {
+      console.error("Error updating post:", error);
+      toast.error("Failed to update post: " + error.message);
     }
   }
-
   if (redirect) {
-    return <Navigate to={`/blogpage/${blogid}`} />;
+    return <Navigate to={`/blogpage?blogid=${blog._id}`} />;
   }
-
   return (
     <div className={styles.addblog_in}>
       <h1 className={styles.head1}>Edit Blog</h1>
@@ -116,6 +115,7 @@ const EditBlog = () => {
           display: "flex",
           flexDirection: "column",
         }}
+        onSubmit={updatePost}
       >
         <div className={styles.forminput_cont}>
           <label>Blog Name</label>
@@ -162,22 +162,13 @@ const EditBlog = () => {
             }}
           />
         </div>
-        {/* <ReactQuill
-        value={blog.content}
-        onChange={(newValue) => setBlog({ ...blog, content: newValue })}
-        modules={modules}
-        formats={formats}
-        className={styles.reactQill}
-      /> */}
-        <Editor onChange={setBlog} value={blog} />
-        <button
-          type="submit"
-          className={styles.main_button}
-          onClick={(e) => {
-            e.preventDefault(); // Prevent the default form submission
-            updatePost();
-          }}
-        >
+
+        <Editor
+          value={blog.content}
+          onChange={(value) => setBlog({ ...blog, content: value })}
+        />
+
+        <button type="submit" className={styles.main_button}>
           Submit
         </button>
       </form>
