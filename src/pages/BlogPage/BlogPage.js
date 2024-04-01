@@ -8,6 +8,43 @@ import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   const [loading, setLoading] = useState(false);
+  const [auth, setauth] = useState(false);
+  const checkLogin = async () => {
+    fetch("http://localhost:8000/auth/checklogin", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+
+        if (response.ok) {
+          setauth(true);
+        } else {
+          console.log(response);
+          // window.location.href = "/login";
+          setauth(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast(error.message, {
+          type: "error",
+          position: "top-right",
+          autoClose: 2000,
+          // window.location.href = "/login";
+        });
+      });
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
   const [blog, setBlog] = useState({
     _id: "",
     title: "",
@@ -23,8 +60,6 @@ const BlogPage = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const blogid = queryParams.get("blogid");
 
-  // const params = useParams();
-  // console.log(params);
   console.log(blogid);
 
   const getBlogbyId = () => {
@@ -112,10 +147,14 @@ const BlogPage = () => {
               <p className={styles.blogdate}>Created at {blogcreatedat}</p>
             </div>
           </div>
-
-          <Link className="main_button" to={`/editpost?blogid=${blog._id}`}>
+          {auth ? (
+            <Link className="main_button" to={`/editpost?blogid=${blog._id}`}>
+              Edit post
+            </Link>
+          ) : null}
+          {/* <Link className="main_button" to={`/editpost?blogid=${blog._id}`}>
             Edit post
-          </Link>
+          </Link> */}
           {blog.imageUrl.length > 0 && (
             <img
               src={blog.imageUrl}
@@ -125,7 +164,7 @@ const BlogPage = () => {
           )}
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
-            className={styles.blogcontent}
+            className={styles.blogcontent sty}
           />
         </div>
       )}
