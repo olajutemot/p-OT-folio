@@ -164,7 +164,7 @@ const BlogPage = () => {
           )}
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
-            className={styles.blogcontent sty}
+            className={styles.blogcontent}
           />
         </div>
       )}

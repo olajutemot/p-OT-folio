@@ -134,7 +134,7 @@
   color: var(--errorcol);
 }
 
-.loaderfullpage {
+/* .loaderfullpage {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -143,4 +143,4 @@
   background-color: #1f1f1f43;
   position: fixed;
   z-index: 999;
-}
+} */

@@ -73,8 +73,14 @@ const Navbar = () => {
               logout
             </button>
           ) : (
-            <button type="" className={styles.logout}>
-              subscribe
+            <button
+              type=""
+              className={styles.logout}
+              onClick={() => {
+                window.location.href = "/portfolio";
+              }}
+            >
+              portfolio
             </button>
           )}
           {/* <button type="" className={styles.logout}>
