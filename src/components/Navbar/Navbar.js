@@ -5,7 +5,16 @@ import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const [auth, setauth] = useState(false);
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    // Check if user is authenticated on component mount
+    const isAuthenticated = localStorage.getItem("auth");
+    if (isAuthenticated) {
+      setAuth(true);
+    }
+  }, []);
+
   const checkLogin = async () => {
     fetch("http://localhost:8000/auth/checklogin", {
       method: "GET",
@@ -21,11 +30,11 @@ const Navbar = () => {
         console.log(response);
 
         if (response.ok) {
-          setauth(true);
+          setAuth(true);
+          localStorage.setItem("auth", true); // Store authentication status
         } else {
-          console.log(response);
-          // window.location.href = "/login";
-          setauth(false);
+          setAuth(false);
+          localStorage.removeItem("auth"); // Clear authentication status
         }
       })
       .catch((error) => {
@@ -43,10 +52,11 @@ const Navbar = () => {
     checkLogin();
   }, []);
 
-  const handlelogout = async () => {
+  const handleLogout = async () => {
     Cookies.remove("authToken");
     Cookies.remove("refreshToken");
-    window.location.href = "/login";
+    setAuth(false);
+    localStorage.removeItem("auth"); // Clear authentication status on logout
   };
 
   return (
@@ -69,7 +79,7 @@ const Navbar = () => {
           {/* <i class="fa-solid fa-plus"></i>
           <i class="fa-regular fa-user"></i> */}
           {auth ? (
-            <button type="" className={styles.logout} onClick={handlelogout}>
+            <button type="" className={styles.logout} onClick={handleLogout}>
               logout
             </button>
           ) : (

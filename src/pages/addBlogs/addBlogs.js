@@ -207,7 +207,11 @@ const AddBlogs = () => {
             formats={formats}
             className={styles.reactQill}
           /> */}
-          <Editor onChange={setBlog} value={blog} />
+          {/* <Editor onChange={setBlog} value={blog} /> */}
+          <Editor
+            value={blog.content}
+            onChange={(value) => setBlog({ ...blog, content: value })}
+          />
           <button
             type="submit"
             className={styles.main_button}
