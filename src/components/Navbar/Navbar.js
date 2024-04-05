@@ -2,50 +2,57 @@ import React, { useEffect, useState } from "react";
 import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+// import { useAuth } from "../AuthContext";
 
 const Navbar = () => {
   const [auth, setAuth] = useState(false);
 
-  useEffect(() => {
-    // Check if user is authenticated on component mount
-    const isAuthenticated = localStorage.getItem("auth");
-    if (isAuthenticated) {
-      setAuth(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Check if user is authenticated on component mount
+  //   const isAuthenticated = localStorage.getItem("auth");
+  //   if (isAuthenticated) {
+  //     setAuth(true);
+  //   }
+  // }, []);
 
   const checkLogin = async () => {
-    fetch("http://localhost:8000/auth/checklogin", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((response) => {
-        console.log(response);
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      // window.location.href = "/login";
+      setAuth(true);
+      return;
+    }
 
-        if (response.ok) {
-          setAuth(true);
-          localStorage.setItem("auth", true); // Store authentication status
-        } else {
-          setAuth(false);
-          localStorage.removeItem("auth"); // Clear authentication status
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        toast(error.message, {
-          type: "error",
-          position: "top-right",
-          autoClose: 2000,
-          // window.location.href = "/login";
-        });
-      });
+    // fetch("http://localhost:8000/auth/checklogin", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+
+    //     if (response.ok) {
+    //       setAuth(true);
+    //     } else {
+    //       setAuth(false);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     // toast(error.message, {
+    //     //   type: "error",
+    //     //   position: "top-right",
+    //     //   autoClose: 2000,
+    //     //   // window.location.href = "/login";
+    //     // });
+    //     setAuth(false);
+    //   });
   };
 
   useEffect(() => {
@@ -55,10 +62,25 @@ const Navbar = () => {
   const handleLogout = async () => {
     Cookies.remove("authToken");
     Cookies.remove("refreshToken");
+    localStorage.removeItem("authToken"); // Clear authentication status on logout
     setAuth(false);
-    localStorage.removeItem("auth"); // Clear authentication status on logout
+    checkLogin();
   };
+  // const handleLogout = async () => {
+  //   // Remove cookies from frontend
+  //   document.cookie =
+  //     "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  //   document.cookie =
+  //     "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
+  //   // Set auth state to false
+  //   setAuth(false);
+  // };
+  // const { authenticated, logout } = useAuth();
+
+  // const handleLogout = () => {
+  //   logout();
+  // };
   return (
     <div className={styles.container}>
       <nav className={styles.Navbar}>

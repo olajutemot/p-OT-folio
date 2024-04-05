@@ -4,13 +4,16 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import Home from "./pages";
 import App from "./App";
+import { AuthProvider } from "./components/AuthContext";
 // import Portfolio from "./Portfolio";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ToastContainer />
-    <App />
-    {/* <Home /> */}
+    <AuthProvider>
+      <ToastContainer />
+      <App />
+      {/* <Home /> */}
+    </AuthProvider>
   </React.StrictMode>
 );

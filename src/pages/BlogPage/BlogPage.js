@@ -8,38 +8,44 @@ import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   const [loading, setLoading] = useState(false);
-  const [auth, setauth] = useState(false);
+  const [auth, setAuth] = useState(false);
   const checkLogin = async () => {
-    fetch("http://localhost:8000/auth/checklogin", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((response) => {
-        console.log(response);
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      // window.location.href = "/login";
+      setAuth(true);
+      return;
+    }
+    // fetch("http://localhost:8000/auth/checklogin", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
 
-        if (response.ok) {
-          setauth(true);
-        } else {
-          console.log(response);
-          // window.location.href = "/login";
-          setauth(false);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        toast(error.message, {
-          type: "error",
-          position: "top-right",
-          autoClose: 2000,
-          // window.location.href = "/login";
-        });
-      });
+    //     if (response.ok) {
+    //       setauth(true);
+    //     } else {
+    //       console.log(response);
+    //       // window.location.href = "/login";
+    //       setauth(false);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     toast(error.message, {
+    //       type: "error",
+    //       position: "top-right",
+    //       autoClose: 2000,
+    //       // window.location.href = "/login";
+    //     });
+    //   });
   };
 
   useEffect(() => {
@@ -99,6 +105,7 @@ const BlogPage = () => {
     getBlogbyId();
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatDate = (inputDate) => {

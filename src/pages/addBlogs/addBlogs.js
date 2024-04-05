@@ -12,29 +12,35 @@ const AddBlogs = () => {
   let [loading, setLoading] = useState(false);
 
   const checkLogin = async () => {
-    fetch("http://localhost:8000/auth/checklogin", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((response) => {
-        console.log(response);
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+      window.location.href = "/login";
+      return;
+    }
+    // fetch("http://localhost:8000/auth/checklogin", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${authToken}`,
+    //   },
+    //   // credentials: "include",
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
 
-        if (response.ok) {
-        } else {
-          console.log(response);
-          window.location.href = "/login";
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        window.location.href = "/login";
-      });
+    //     if (response.ok) {
+    //     } else {
+    //       console.log(response);
+    //       window.location.href = "/login";
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     window.location.href = "/login";
+    //   });
   };
 
   useEffect(() => {
