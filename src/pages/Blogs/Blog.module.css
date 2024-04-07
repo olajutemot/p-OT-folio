@@ -3,3 +3,10 @@
   min-width: 750px;
   margin: 4rem auto 10rem;
 }
+@media (max-width: 1200px) {
+  .blogContainer {
+    width: 90%;
+    min-width: 350px;
+    /* border: 2px solid red; */
+  }
+}

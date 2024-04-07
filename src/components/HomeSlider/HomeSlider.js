@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 // const width = window.innerWidth;
 // const height = window.innerHeight;
@@ -47,17 +47,19 @@ const HomeSlider = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Latest Blogs</h1>
       <Swiper
-        slidesPerView={1}
         spaceBetween={30}
-        loop={true}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
-        className={styles.mySwiper}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
       >
         {blogs.map((blog) => (
           <SwiperSlide
@@ -72,6 +74,7 @@ const HomeSlider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <h1>Latest Blogs</h1>
       <BlogCards blogs={blogs} />
     </div>
   );

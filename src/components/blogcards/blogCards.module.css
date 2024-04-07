@@ -45,3 +45,17 @@
   border-radius: 10px 10px 0 0;
   width: 100%;
 }
+@media (max-width: 1200px) {
+  .blogcardContainer {
+    display: block;
+    width: 100%;
+    /* border: 2px solid red; */
+  }
+  .blogCard img {
+    width: 100%;
+    object-fit: contain;
+  }
+  .blogCards {
+    width: 100%;
+  }
+}

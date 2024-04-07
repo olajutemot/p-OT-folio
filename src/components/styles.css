@@ -397,10 +397,10 @@ button:hover {
   .container {
     background: #282727;
   }
-  header {
+  .Homeheader {
     margin-top: 2rem;
   }
-  h1 {
+  .Homeheader h1 {
     font-size: 2rem;
     margin: 1rem 0;
   }

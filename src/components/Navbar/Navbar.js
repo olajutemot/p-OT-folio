@@ -97,7 +97,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={styles.Icons}>
-          <i class="fa-solid fa-magnifying-glass"></i>
           {/* <i class="fa-solid fa-plus"></i>
           <i class="fa-regular fa-user"></i> */}
           {auth ? (
@@ -115,9 +114,7 @@ const Navbar = () => {
               portfolio
             </button>
           )}
-          {/* <button type="" className={styles.logout}>
-            logout
-          </button> */}
+          {/* <i class="fa-solid fa-magnifying-glass"></i> */}
         </div>
       </nav>
     </div>
