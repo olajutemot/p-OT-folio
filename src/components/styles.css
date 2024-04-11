@@ -372,7 +372,21 @@ button:hover {
 .skill-details p {
   font-size: 0.7rem;
 }
-
+/* =======================styling blog nav section========================== */
+.nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  visibility: hidden;
+  /* opacity: 0; */
+  font-size: 1.8rem;
+}
+#nav-toggler {
+  transition: opacity 0.3s ease-in-out; /* Adjust transition properties as needed */
+}
 /* ====================================PROFILE ANIMATION========================== */
 @keyframes slidein {
   0% {
@@ -446,5 +460,16 @@ button:hover {
   }
   .filter-sections {
     margin: 2rem auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+  #nav-toggler.nav-close-btn {
+    display: none;
+    opacity: 0;
   }
 }

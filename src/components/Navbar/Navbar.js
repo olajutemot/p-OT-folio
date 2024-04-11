@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -7,7 +8,18 @@ import Cookies from "js-cookie";
 
 const Navbar = () => {
   const [auth, setAuth] = useState(false);
+  const [nav, setNav] = useState(false);
+  const buttonRef = useRef();
 
+  const showNavbar = () => {
+    buttonRef.current.classList.toggle("nav-close-btn");
+
+    setNav(true);
+  };
+  const closeNavbar = () => {
+    buttonRef.current.classList.toggle("nav-close-btn");
+    setNav(false);
+  };
   // useEffect(() => {
   //   // Check if user is authenticated on component mount
   //   const isAuthenticated = localStorage.getItem("auth");
@@ -66,26 +78,12 @@ const Navbar = () => {
     setAuth(false);
     checkLogin();
   };
-  // const handleLogout = async () => {
-  //   // Remove cookies from frontend
-  //   document.cookie =
-  //     "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  //   document.cookie =
-  //     "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-  //   // Set auth state to false
-  //   setAuth(false);
-  // };
-  // const { authenticated, logout } = useAuth();
-
-  // const handleLogout = () => {
-  //   logout();
-  // };
   return (
     <div className={styles.container}>
       <nav className={styles.Navbar}>
+        <h1 className={styles.logo}>Dev.OT</h1>
         <div className={styles.menu}>
-          <h1 className={styles.logo}>Dev.OT</h1>
           <Link to={"/blogs"} className={styles.Anchors}>
             HOME
           </Link>
@@ -116,6 +114,59 @@ const Navbar = () => {
           )}
           {/* <i class="fa-solid fa-magnifying-glass"></i> */}
         </div>
+
+        {/* responsiveness JSX */}
+        <button
+          ref={buttonRef}
+          id="nav-toggler"
+          className="nav-btn"
+          onClick={showNavbar}
+        >
+          <FaBars />
+        </button>
+        <button
+          ref={buttonRef}
+          id="nav-toggler"
+          className="nav-btn nav-close-btn"
+          onClick={closeNavbar}
+        >
+          <FaTimes />
+        </button>
+        {nav ? (
+          <div className={styles.resMenu}>
+            <Link to={"/blogs"} className={styles.Anchors}>
+              HOME
+            </Link>
+            <Link to={"/about"} className={styles.Anchors}>
+              ABOUT
+            </Link>
+            <Link to={"/CNS"} className={styles.Anchors}>
+              CODINGNIGHTSCHOOL
+            </Link>
+            <div className={styles.resIcons}>
+              {auth ? (
+                <button
+                  type=""
+                  className={styles.logout}
+                  onClick={handleLogout}
+                >
+                  logout
+                </button>
+              ) : (
+                <button
+                  type=""
+                  className={styles.logout}
+                  onClick={() => {
+                    window.location.href = "/portfolio";
+                  }}
+                >
+                  portfolio
+                </button>
+              )}
+              {/* <i class="fa-solid fa-magnifying-glass"></i> */}
+            </div>
+          </div>
+        ) : null}
       </nav>
     </div>
   );
